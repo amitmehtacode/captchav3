@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
-import {View, Button} from 'react-native';
-import {WebView} from 'react-native-webview';
-import {baseUrl, siteKeyV3} from '../../utils';
+import React from 'react';
+import {View} from 'react-native';
 
-const MyComponent = () => {
+import {WebView} from 'react-native-webview';
+
+const ReCaptchaV3 = ({
+  baseUrl = '',
+  siteKeyV3 = '',
+  onReceiveToken = () => {},
+}) => {
   const recaptchaSiteKey = siteKeyV3;
   const recaptchaBaseUrl = baseUrl;
-  const [recaptchaToken, setRecaptchaToken] = useState('');
-
   const webViewContent = `
     <!DOCTYPE html>
     <html>
@@ -27,11 +29,9 @@ const MyComponent = () => {
   `;
 
   const handleWebViewMessage = event => {
-    // console.log('event-------', event);
     const token = event.nativeEvent.data;
-    console.log('token-------', token);
     if (token) {
-      setRecaptchaToken(token);
+      onReceiveToken(token);
     }
   };
 
@@ -44,9 +44,8 @@ const MyComponent = () => {
         }}
         onMessage={handleWebViewMessage}
       />
-      <Button title="Show Token" onPress={() => alert(recaptchaToken)} />
     </View>
   );
 };
 
-export default MyComponent;
+export default ReCaptchaV3;

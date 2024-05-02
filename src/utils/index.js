@@ -1,8 +1,8 @@
-export const baseUrl = 'https://royallarchitecture.co.uk/'; // Place your server's base URL here
-export const siteKeyV3 = '6LeZuMwpAAAAAJBayu-9rw3P2fKUp_RnClT7K4LY'; // Place your reCAPTCHA 3 site key here
+export const baseUrl = ''; // Place your server's base URL here
+export const siteKeyV3 = ''; // Place your reCAPTCHA 3 site key here
 
 const SITE_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify';
-const SECRET_KEY = '6LdqCsgpAAAAAF7yyqckpq1iyDkpZwJQc0GjdSmY';
+const SECRET_KEY = ''; // Place your reCAPTCHA 3 site key here
 const STATUS_CODE_OK = 200;
 
 export const validateCaptchaToken = async (token = '', callback = {}) => {
