@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Button} from 'react-native';
 import {WebView} from 'react-native-webview';
-import {baseUrl, siteKey, siteKeyV3} from '../../utils';
+import {baseUrl, siteKeyV3} from '../../utils';
 
 const MyComponent = () => {
   const recaptchaSiteKey = siteKeyV3;
@@ -27,12 +27,12 @@ const MyComponent = () => {
   `;
 
   const handleWebViewMessage = event => {
-    console.log('event-------', event);
-    // const token = event.nativeEvent.data;
-    // if (token) {
-    //   setRecaptchaToken(token);
-    //   // You can perform further actions with the token here
-    // }
+    // console.log('event-------', event);
+    const token = event.nativeEvent.data;
+    console.log('token-------', token);
+    if (token) {
+      setRecaptchaToken(token);
+    }
   };
 
   return (
