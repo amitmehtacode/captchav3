@@ -7,7 +7,7 @@ import {baseUrl, siteKeyV3, validateCaptchaToken} from '../../utils';
 const CaptchaV3Lib1 = () => {
   const [show, setShow] = useState(false);
   const [captchaToken, setCaptchaToken] = useState('');
-  
+
   const captchaRef = useRef(null);
 
   const handleTokenReceive = token => {
@@ -27,7 +27,6 @@ const CaptchaV3Lib1 = () => {
   };
 
   const handleValidateToken = () => {
-    console.log('tttt------', captchaRef.current);
     validateCaptchaToken(captchaRef.current, handleCaptchaVerification);
   };
 

@@ -25,12 +25,15 @@ export const validateCaptchaToken = async (token = '', callback = {}) => {
       body: postData,
     });
 
-    const data = await response.json();
+    // console.log("🚀 ~ validateCaptchaToken ~ data:", response)
 
-    if (data?.ok && data?.status === STATUS_CODE_OK) {
-      callback(data);
+    const data = await response.json();
+    
+
+    if (response?.ok && response?.status === STATUS_CODE_OK) {
+      callback(response);
     } else {
-      callback(data);
+      callback(response);
     }
   } catch (error) {
     callback({});
