@@ -1,14 +1,13 @@
-export const siteKey = '6Ld_CsgpAAAAAK6U9yiR4h8YkdKM9dwws3FpTZkL'; // Place your reCAPTCHA site key here
 export const baseUrl = 'https://royallarchitecture.co.uk/'; // Place your server's base URL here
+export const siteKeyV3 = '6LeZuMwpAAAAAJBayu-9rw3P2fKUp_RnClT7K4LY'; // Place your reCAPTCHA 3 site key here
 
-export const siteKeyV3 = '6LeZuMwpAAAAAJBayu-9rw3P2fKUp_RnClT7K4LY';
+const SITE_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify';
+const SECRET_KEY = '6LdqCsgpAAAAAF7yyqckpq1iyDkpZwJQc0GjdSmY';
+const STATUS_CODE_OK = 200;
 
-const siteVerifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
-const secretKey = '6LdqCsgpAAAAAF7yyqckpq1iyDkpZwJQc0GjdSmY';
-
-export const validateCaptchaToken = async (token, callback = {}) => {
+export const validateCaptchaToken = async (token = '', callback = {}) => {
   const params = {
-    secret: secretKey,
+    secret: SECRET_KEY,
     response: token,
   };
 
@@ -21,14 +20,14 @@ export const validateCaptchaToken = async (token, callback = {}) => {
       },
     };
 
-    const response = await fetch(siteVerifyUrl, {
+    const response = await fetch(SITE_VERIFY_URL, {
       ...options,
       body: postData,
     });
 
     const data = await response.json();
 
-    if (data?.ok && data?.status === 200) {
+    if (data?.ok && data?.status === STATUS_CODE_OK) {
       callback(data);
     } else {
       callback(data);

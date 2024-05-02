@@ -8,7 +8,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.heading}>reCAPTCHA V3</Text>
-      <MyComponent />
+      <CaptchaV3Lib1 />
     </SafeAreaView>
   );
 };
