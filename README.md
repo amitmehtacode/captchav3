@@ -1,79 +1,88 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## reCAPTCHA V3 for React Native (Android and iOS)
+A lightweight and secure React Native library for seamless integration of Google ReCaptcha V3 into mobile applications. Simplify user verification and enhance security with tokenized captcha handling, ensuring a frictionless experience for your users while protecting your app from malicious activities by Amit Kumar..
 
-# Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+<p align="left">
+  <a href="https://www.npmjs.com/package/react-native-accordion-list-view"><img src="https://img.shields.io/badge/npm-v1.0.3-blue"></a>
+  <a href="https://travis-ci.org/louay12/react-native-accordion-list-view"><img src="https://img.shields.io/badge/Build-Passing-pass"></a>
+</p>
 
-## Step 1: Start the Metro Server
+<p align="left">
+  <a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-ISC-blue.svg"></a>
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+</p>
 
-To start Metro, run the following command from the _root_ of your React Native project:
-
+## Getting started
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+npm install react-native-secure-captcha-v3 --save
+```
+or
+```bash
+yarn add react-native-secure-captcha-v3
 ```
 
-## Step 2: Start your Application
+### Demo
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+<p>
+   <img width="800" src="https://github.com/amitmehtacode/captchav3/raw/main/src/v3.gif" />
+</p>
 
-### For Android
+<br>
 
-```bash
-# using npm
-npm run android
+### Usage
 
-# OR using Yarn
-yarn android
+Import the `MultiAccordion` component from the package and use it in your React Native application.
+
+```jsx
+import { SafeAreaView } from 'react-native';
+import React from 'react';
+import RecaptchaV3 from 'react-native-secure-captcha-v3';
+
+const App = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <RecaptchaV3
+        baseUrl={'https://yourdomain.com'}
+        siteKeyV3={'YOUR_SITE_KEY'}
+        onReceiveToken={token => {
+          console.log('token:', token);
+        }}
+      />
+    </SafeAreaView>
+  );
+};
+
+export default App;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 ```
 
-### For iOS
 
-```bash
-# using npm
-npm run ios
 
-# OR using Yarn
-yarn ios
-```
+## Props
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+The `reCaptchaV3` component accepts the following props:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+| Props                  | Type                               | Required | Default Value       | Description                                                                                                                                                                                                                                  |
+|------------------------|------------------------------------|----------|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| baseUrl                | string                             | Yes      | ''                  | The base URL for the ReCaptcha script Must start with https://.                                                                                                                                                                                                       |
+| siteKeyV3              | string                             | Yes      | ''                  | The site key for ReCaptcha V3.                                                                                                                                                                                                              |
+| onReceiveToken         | (token: string) => void            | Yes      | () => {}            | Callback function triggered when a token is received from ReCaptcha V3.                                                                                                                                                                                                          
 
-## Step 3: Modifying your App
 
-Now that you have successfully run the app, let's modify it.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
 
-## Congratulations! :tada:
 
-You've successfully run and modified your React Native App. :partying_face:
+## Contributing
 
-### Now what?
+**Contributions are welcome!** Please check the contribution guidelines before submitting issues or pull requests.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+## License
 
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+**ISC**
