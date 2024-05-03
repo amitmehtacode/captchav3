@@ -1,12 +1,10 @@
 import { SafeAreaView, StyleSheet, Text } from 'react-native';
 import React from 'react';
-import CaptchaV3Lib1 from './src/components/CaptchaV3Lib1';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.heading}>reCAPTCHA V3</Text>
-      <CaptchaV3Lib1 />
     </SafeAreaView>
   );
 };
