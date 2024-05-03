@@ -1,8 +1,6 @@
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import CaptchaV3Lib1 from './src/components/CaptchaV3Lib1';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
-import MyComponent from './src/components/CustomV3';
 
 const App = () => {
   return (
