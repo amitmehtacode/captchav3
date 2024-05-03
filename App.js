@@ -1,4 +1,4 @@
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import { SafeAreaView, StyleSheet, Text } from 'react-native';
 import React from 'react';
 import CaptchaV3Lib1 from './src/components/CaptchaV3Lib1';
 
