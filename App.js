@@ -1,18 +1,12 @@
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import ReCaptchaV3 from './src/components/ReCaptchaV3';
+import CaptchaV3Lib1 from './src/components/CaptchaV3Lib1';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.heading}>reCAPTCHA V3</Text>
-      <ReCaptchaV3
-        baseUrl={'https://yourdomain.com'}
-        siteKeyV3={'YOUR_SITE_KEY'}
-        onReceiveToken={token => {
-          console.log('token:', token);
-        }}
-      />
+      <CaptchaV3Lib1 />
     </SafeAreaView>
   );
 };
